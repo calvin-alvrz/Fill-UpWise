@@ -44,6 +44,10 @@ int main(void){
     total_a = calculate_total(fuel_consumption_updated, estimated_litres, distance_a, price_a);
     total_b = calculate_total(fuel_consumption_updated, estimated_litres, distance_b, price_b);
 
+    //--Final Output
+
+    final_output(total_a, total_b);
+
     return 0;
 }
 
@@ -52,7 +56,8 @@ void draw_header(void){
     printf("Welcome to Fill-UpWise\n");
     printf("=======================\n\n");
     printf("Provide the details and find out whether it's worth travelling somewhere to fill up or not\n\n");
-    printf("NOTE: You are asked to have previous knowledge of your car's fuel consumption and an estimate\nof how many litres you're going to fil up");
+    printf("NOTE: You are asked to have previous knowledge of your car's fuel consumption and an estimate\n");
+    printf("of how many litres you're going to fil up\n\n");
 }
 
 float calculate_total(float fue_c, int est_l, float dist, float pri){
@@ -69,4 +74,16 @@ float calculate_total(float fue_c, int est_l, float dist, float pri){
     total_trip = number_litres_trip * pri;
 
     return total_fuel_price + total_trip;
+}
+
+void final_output(float final_a, float final_b){
+
+    if (final_a < final_b)
+    {
+        printf("You will save $%.2f by going to the nearest gas station.\n", final_b - final_a);
+    }
+    else if (final_b < final_a)
+    {
+        printf("You will save $%.2f by going to the furthest gas station.\n", final_a - final_b);
+    }
 }
