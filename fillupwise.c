@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+void draw_header(void);
+float calculate_total(float fue_c, int est_l, float dist, float pri);
+void final_output(float final_a, float final_b);
+
 int main(void){
 
     //--Function for header
@@ -39,14 +43,16 @@ int main(void){
 
     //--Functions for calculations
 
-    float fuel_consumption_updated = 100 / fuel_consumption;
+    float fuel_consumption_updated = 100.0 / fuel_consumption;
 
     total_a = calculate_total(fuel_consumption_updated, estimated_litres, distance_a, price_a);
     total_b = calculate_total(fuel_consumption_updated, estimated_litres, distance_b, price_b);
 
     //--Final Output
-
+    
     final_output(total_a, total_b);
+
+    getchar();
 
     return 0;
 }
